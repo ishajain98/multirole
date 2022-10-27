@@ -5,7 +5,7 @@ public class CMSRoles implements Serializable {
     @Id
     @Column(name = "role_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @Column(name = "name")
     private String name;
@@ -19,14 +19,14 @@ public class CMSRoles implements Serializable {
                     name = "privilege_id", referencedColumnName = "id"))
     private Collection<Privileges> privileges;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
     public String getName() {
         return name;
     }
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
