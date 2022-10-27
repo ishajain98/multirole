@@ -5,21 +5,17 @@ public class User implements Serializable {
     @Id
       @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
 
 @Column(name = "firstname")
     private String firstName;
 
-    @Column(name = "lastname")
-    private String lastName;
-
-
-
+    
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "cms_user_role",
-			joinColumns = @JoinColumn(name = "agent_olm_id", referencedColumnName = "agent_olm_id"),
+			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
 			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
 	)
 	private Set<CMSRoles> roles = new HashSet<>();
@@ -29,5 +25,11 @@ public class User implements Serializable {
 		this.roles.add(role);
 		return;
 	}
-	}// getter setter to add
+	 public int getId() {
+        return id;
+    }
+	public void setId(int id) {
+        this.id = id;
+    }
+	}
 
