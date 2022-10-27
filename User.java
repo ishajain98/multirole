@@ -14,9 +14,9 @@ public class User implements Serializable {
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
-			name = "cms_user_role",
+			name = "cms_user_privilege",
 			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+			inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "privilege_id")
 	)
 	private Set<CMSRoles> roles = new HashSet<>();
 
